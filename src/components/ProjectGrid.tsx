@@ -1,5 +1,5 @@
 import { Terminal, BrainCircuit, BotMessageSquare, Github, Utensils } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 
 // 项目数据保持不变
 const projects = [
@@ -42,13 +42,17 @@ const techColorMap: Record<string, string> = {
 };
 
 // 水波纹浮现动画保持不变
-const fadeInUp = {
+const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 30, filter: 'blur(10px)' },
   visible: { 
     opacity: 1, 
     y: 0, 
     filter: 'blur(0px)',
-    transition: { duration: 0.8, type: 'spring', bounce: 0.3 } 
+    transition: { 
+      duration: 0.8, 
+      type: 'spring', 
+      bounce: 0.3 
+    } 
   }
 };
 

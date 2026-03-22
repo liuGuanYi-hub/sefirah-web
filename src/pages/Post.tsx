@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import { useEffect, useState } from 'react';
+import PostActionButtons from '../components/PostActionButtons';
 
 export default function Post() {
   const { id } = useParams(); // 获取 URL 里的文章 ID
@@ -51,6 +52,8 @@ export default function Post() {
         <ReactMarkdown>{content}</ReactMarkdown>
       </article>
 
+      {/* 底部悬浮按钮组 */}
+      <PostActionButtons />
     </motion.div>
   );
 }
