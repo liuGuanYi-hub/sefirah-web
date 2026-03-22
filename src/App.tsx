@@ -1,50 +1,66 @@
-import ProjectGrid from './components/ProjectGrid';
-import DigitalGarden from './components/DigitalGarden';
+import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
 import { Terminal } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
 
-export default function App() {
-    return (
-        <div className="min-h-screen bg-[#030712] text-gray-100 font-sans selection:bg-emerald-500/30 selection:text-emerald-200">
+// 引入粒子背景组件
+import ParticlesBackground from './components/ParticlesBackground';
 
-            {/* 极简导航栏 */}
-            <nav className="border-b border-gray-800/50 bg-[#030712]/80 backdrop-blur-md sticky top-0 z-50">
-                <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-                    <div className="flex items-center gap-2 font-mono text-lg font-bold text-white tracking-tighter hover:text-emerald-400 transition-colors cursor-pointer">
-                        <Terminal size={20} className="text-emerald-500" />
-                        <span>Sefirah<span className="text-emerald-500">.</span></span>
-                    </div>
-                    <div className="flex gap-6 text-sm font-mono text-gray-400">
-                        <a href="#" className="hover:text-emerald-400 transition-colors">/about</a>
-                        <a href="#" className="text-emerald-400 transition-colors">/projects</a>
-                        <a href="#" className="hover:text-emerald-400 transition-colors">/notes</a>
-                    </div>
-                </div>
-            </nav>
+// 引入刚才写好的页面
+import Home from './pages/Home';
+import Notes from './pages/Notes';
+import Post from './pages/Post';
 
-            {/* 首屏介绍 (Hero Section) */}
-            <header className="max-w-6xl mx-auto px-6 py-24 md:py-32">
-                <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">
-                    Building <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-500">complex logic</span> <br />
-                    with elegant code.
-                </h1>
-                <p className="text-gray-400 text-lg md:text-xl max-w-2xl leading-relaxed mb-8">
-                    全栈开发者 / AI 代理探索者。热衷于底层逻辑的拆解与系统架构的设计。
-                </p>
-                <button className="font-mono text-sm bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-6 py-3 rounded-lg hover:bg-emerald-500 hover:text-gray-950 hover:border-emerald-500 transition-all duration-300">
-                    $ ./view-resume.sh
-                </button>
-            </header>
+// 导航栏组件
+function Navbar() {
+  const navLinkClass = ({ isActive }: { isActive: boolean }) => 
+    `transition-colors ${isActive ? 'text-zinc-100 font-bold' : 'text-zinc-400 hover:text-zinc-100'}`;
 
-            {/* 核心项目展示 */}
-            <ProjectGrid />
-
-            {/* 数字花园 (新增) */}
-            <DigitalGarden />
-
-            {/* 极简页脚 */}
-            <footer className="border-t border-gray-900 mt-20 py-8 text-center text-gray-600 font-mono text-xs">
-                © 2026 Project Sefirah. All rights reserved.
-            </footer>
+  return (
+    <nav className="fixed top-0 inset-x-0 z-50 bg-[#0e0f11]/60 backdrop-blur-2xl border-b border-white/[0.03]">
+      <div className="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
+        <NavLink to="/" className="flex items-center gap-2 font-mono text-lg font-bold text-zinc-100 hover:text-emerald-400 transition-colors cursor-pointer">
+          <Terminal size={18} className="text-emerald-500" />
+          <span>Sefirah<span className="text-emerald-500">.</span></span>
+        </NavLink>
+        <div className="flex gap-6 text-sm font-medium">
+          <NavLink to="/" className={navLinkClass}>主页</NavLink>
+          <NavLink to="/notes" className={navLinkClass}>思考</NavLink>
+          <a href="https://blog.csdn.net/arqiu8?spm=1000.2115.3001.5343" target="_blank" rel="noreferrer" className="text-zinc-400 hover:text-zinc-100 transition-colors">CSDN</a>
+          <a href="https://github.com/liuGuanYi-hub" target="_blank" rel="noreferrer" className="text-zinc-400 hover:text-zinc-100 transition-colors">GitHub</a>
         </div>
-    )
+      </div>
+    </nav>
+  );
+}
+
+// 路由调度中心
+export default function App() {
+  return (
+    <BrowserRouter>
+      {/* 1. 注入粒子背景 (最底层) */}
+      <ParticlesBackground />
+
+      {/* 2. 全局背景颜色和光晕装饰 */}
+      <div className="min-h-screen relative text-zinc-300 font-sans selection:bg-emerald-500/30 selection:text-emerald-200 overflow-hidden">
+        
+        {/* 【最核心】Innei 同款背景微光光晕 (Spotlight) */}
+        <div className="fixed -top-32 -left-32 w-96 h-96 bg-emerald-500/10 blur-[130px] rounded-full pointer-events-none z-0" />
+        <div className="fixed top-1/2 -right-32 w-80 h-80 bg-cyan-500/10 blur-[110px] rounded-full pointer-events-none z-0" />
+        
+        {/* 全局导航栏 (中层) */}
+        <Navbar />
+        
+        {/* 3. main 标签限定了下方内容的宽度和顶部的边距 (最上层) */}
+        <main className="max-w-4xl mx-auto px-6 pt-32 pb-20 relative z-10">
+          <AnimatePresence mode="wait">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/notes" element={<Notes />} />
+              <Route path="/post/:id" element={<Post />} />
+            </Routes>
+          </AnimatePresence>
+        </main>
+      </div>
+    </BrowserRouter>
+  );
 }
