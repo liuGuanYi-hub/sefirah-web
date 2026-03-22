@@ -17,7 +17,7 @@ function Navbar() {
 
   return (
     <nav className="fixed top-0 inset-x-0 z-50 bg-[#0e0f11]/60 backdrop-blur-2xl border-b border-white/[0.03]">
-      <div className="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-8 h-16 flex items-center justify-between">
         <NavLink to="/" className="flex items-center gap-2 font-mono text-lg font-bold text-zinc-100 hover:text-emerald-400 transition-colors cursor-pointer">
           <Terminal size={18} className="text-emerald-500" />
           <span>Sefirah<span className="text-emerald-500">.</span></span>
@@ -51,7 +51,7 @@ export default function App() {
         <Navbar />
         
         {/* 3. main 标签限定了下方内容的宽度和顶部的边距 (最上层) */}
-        <main className="max-w-4xl mx-auto px-6 pt-32 pb-20 relative z-10">
+        <main className="max-w-6xl mx-auto px-8 pt-40 pb-20 relative z-10">
           <AnimatePresence mode="wait">
             <Routes>
               <Route path="/" element={<Home />} />
