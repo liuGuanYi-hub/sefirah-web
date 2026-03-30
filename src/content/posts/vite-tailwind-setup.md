@@ -1,3 +1,9 @@
+---
+title: 从零梳理 Vite + Tailwind V4 的极简配置流
+date: 2026-03-11
+category: 技术
+---
+
 # 从零梳理 Vite + Tailwind V4 的极简配置流
 
 随着工具链的不断迭代，前端项目的初始化应该越来越轻量。Vite 配合最新的 Tailwind CSS V4，可以说是目前开发体验最丝滑的组合。

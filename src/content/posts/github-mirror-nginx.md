@@ -1,3 +1,9 @@
+---
+title: 国内访问 GitHub 总是 Timeout？教你用 Nginx + CDN 强力破局
+date: 2026-03-03
+category: 技术
+---
+
 # 国内访问 GitHub 总是 Timeout？教你用 Nginx + CDN 强力破局
 
 > 原创发布于 2026-03-09 | 解决开发者痛点的硬核指南

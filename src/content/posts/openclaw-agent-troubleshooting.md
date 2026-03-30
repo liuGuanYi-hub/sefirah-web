@@ -1,3 +1,9 @@
+---
+title: OpenClaw Agent 踩坑实录：从多源错误到多源知识检索的落地
+date: 2026-03-09
+category: 技术
+---
+
 # OpenClaw Agent 踩坑实录：从多源错误到多源知识检索的落地
 
 > 原创发布于 2026-03-11 | AI Agent 部署与本地知识库构建笔记

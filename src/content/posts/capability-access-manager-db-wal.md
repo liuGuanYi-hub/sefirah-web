@@ -1,3 +1,9 @@
+---
+title: 记一次 C 盘 18G 异常占用的排查：CapabilityAccessManager.db-wal 究竟是个什么鬼？
+date: 2026-03-01
+category: 技术
+---
+
 # 记一次 C 盘 18G 异常占用的排查：CapabilityAccessManager.db-wal 究竟是个什么鬼？
 
 > 原创发布于 2026-03-09 | 磁盘空间回收与 Windows 服务排雷实录
