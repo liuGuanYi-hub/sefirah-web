@@ -1,8 +1,26 @@
-import { Terminal, BrainCircuit, BotMessageSquare, Github, Utensils } from 'lucide-react';
+import {Terminal, BrainCircuit, BotMessageSquare, Github, Utensils, Wallet, Activity} from 'lucide-react';
 import { motion, type Variants } from 'framer-motion';
 
 // 项目数据保持不变
 const projects = [
+  // 【最硬核】：新增 senseNode 项目
+  {
+    icon: Activity, // 换成波形监控图标
+    title: 'senseNode',
+    description: '轻量级设备在线监测与预警系统。从 0 到 1 独立主导后端架构，设计多级预警机制与多维健康度评估算法，为复杂数据可视化大屏提供低延迟的数据支撑。',
+    tech: ['Vue', 'Spring Boot', 'REST API'], // 真实的后端与接口技术栈
+    color: 'cyan', // 青色非常适合“监测、数据”的科技感，保留！
+    github: 'https://github.com/liuGuanYi-hub/senseNode',
+  },
+  // 【新增】：moneyNote 财务应用
+  {
+    icon: Wallet,
+    title: 'moneyNote',
+    description: '前后端分离的个人财务管理应用。实现了多维度账单分类汇总与状态流转，利用 RESTful API 保证了高频交互下的数据强一致性。',
+    tech: ['React', 'Spring Boot', 'MySQL'],
+    color: 'amber', // 专属琥珀金配色
+    github: 'https://github.com/liuGuanYi-hub/moneyNote',
+  },
   {
     icon: BrainCircuit,
     title: 'OpenClaw Agent 知识库',

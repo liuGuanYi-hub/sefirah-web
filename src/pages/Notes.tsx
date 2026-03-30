@@ -2,6 +2,8 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 const notesList = [
+  { id: 'four-generations-twin-stars-analysis', date: '2026-03-29', title: '深挖《四世同堂》双子星：长房长孙的“精神内耗”与热血三郎的“破局之路”' },
+  { id: 'moneynote-architecture-review', date: '2026-03-24', title: 'moneyNote 架构复盘：全栈视角下的状态流转与数据一致性' },
   { id: 'oliver-twist-and-the-plague-reflection', date: '2026-03-22', title: '苦难、荒诞与秩序的重建：重读《雾都孤儿》与《鼠疫》' },
   { id: 'openclaw-agent-troubleshooting', date: '2026-03-11', title: 'OpenClaw Agent 踩坑实录：从多源错误到多源知识检索的落地' },
   { id: 'capability-access-manager-db-wal', date: '2026-03-09 23:21:49', title: '记一次 C 盘 18G 异常占用的排查：CapabilityAccessManager.db-wal 究竟是个什么鬼？' },
