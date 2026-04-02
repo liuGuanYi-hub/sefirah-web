@@ -16,7 +16,8 @@ const notesList = Object.entries(mdModules).map(([path, module]) => {
   let category = '随笔';
 
   // 正则提取顶部 --- 包裹的信息
-  const match = rawContent.match(/^---\n([\s\S]*?)\n---/);
+  // ✅ 升级后的抗脆弱正则（兼容 \r 和 \n，并且忽略开头可能存在的不可见字符）
+  const match = rawContent.match(/^\s*---[\r\n]+([\s\S]*?)[\r\n]+---/);
   if (match) {
     const frontmatter = match[1];
     const titleMatch = frontmatter.match(/title:\s*(.*)/);
