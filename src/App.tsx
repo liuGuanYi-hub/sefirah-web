@@ -5,10 +5,11 @@ import { AnimatePresence, motion } from 'framer-motion';
 // 引入粒子背景组件
 import ParticlesBackground from './components/ParticlesBackground';
 
-// 引入刚才写好的页面
+// 引入页面组件
 import Home from './pages/Home';
 import Notes from './pages/Notes';
 import Post from './pages/Post';
+import News from './pages/News';
 
 // 导航栏组件
 function Navbar() {
@@ -25,6 +26,7 @@ function Navbar() {
         <div className="flex gap-6 text-sm font-medium">
           <NavLink to="/" className={navLinkClass}>主页</NavLink>
           <NavLink to="/notes" className={navLinkClass}>思考</NavLink>
+          <NavLink to="/news" className={navLinkClass}>资讯</NavLink>
           <a href="https://blog.csdn.net/arqiu8?spm=1000.2115.3001.5343" target="_blank" rel="noreferrer" className="text-zinc-400 hover:text-zinc-100 transition-colors">CSDN</a>
           <a href="https://github.com/liuGuanYi-hub" target="_blank" rel="noreferrer" className="text-zinc-400 hover:text-zinc-100 transition-colors">GitHub</a>
         </div>
@@ -56,6 +58,7 @@ export default function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/notes" element={<Notes />} />
+              <Route path="/news" element={<News />} />
               <Route path="/post/:id" element={<Post />} />
             </Routes>
           </AnimatePresence>

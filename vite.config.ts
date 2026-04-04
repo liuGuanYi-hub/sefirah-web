@@ -8,4 +8,14 @@ export default defineConfig({
     react(),
     tailwindcss(), // <-- 2. 激活插件
   ],
+  server: {
+    proxy: {
+      // 代理 CSDN 热榜 API，解决前端跨域问题
+      '/api/csdn': {
+        target: 'https://blog.csdn.net',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/csdn/, ''),
+      },
+    },
+  },
 })
