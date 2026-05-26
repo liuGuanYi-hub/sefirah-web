@@ -3,12 +3,15 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 // 1. 【核心魔法引擎】：利用 Vite 自动批量读取 posts 目录下所有的 .md 文件
-const mdModules = import.meta.glob('../content/posts/*.md', { eager: true, query: '?raw' });
+const mdModules = import.meta.glob<{ default: string }>('../content/posts/*.md', {
+  eager: true,
+  query: '?raw',
+});
 
 // 2. 自动解析 Markdown 的 Frontmatter，彻底告别手动配置数组！
 const notesList = Object.entries(mdModules).map(([path, module]) => {
-  const rawContent = typeof module === 'string' ? module : (module as any).default;
-  const id = path.split('/').pop()?.replace('.md', ''); // 从文件名提取 id
+  const rawContent = module.default;
+  const id = path.split('/').pop()?.replace('.md', '') ?? path; // 从文件名提取 id
   
   // 默认占位符
   let title = '未命名碎片';
@@ -91,7 +94,7 @@ export default function Notes() {
             <AnimatePresence mode="popLayout">
               {filteredNotes.map((note) => (
                   <motion.div
-                      key={note.id || Math.random()} // 防止 id 为空时的报错
+                      key={note.id}
                       layout
                       initial={{ opacity: 0, scale: 0.95 }}
                       animate={{ opacity: 1, scale: 1 }}

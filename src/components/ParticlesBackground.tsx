@@ -63,20 +63,19 @@ export default function ParticlesBackground() {
       number: {
         density: {
           enable: true,
-          area: 800,
+          width: 800,
+          height: 800,
         },
         value: 120, // 粒子数量，保持细碎不拥挤
       },
       opacity: {
-        value: 0.2, // 【关键】极低的透明度，似有似无
-        random: true, // 随机透明度，增加层次感
+        value: { min: 0.1, max: 0.3 }, // 【关键】极低的透明度，似有似无
       },
       shape: {
         type: "circle", // 圆形小粒子
       },
       size: {
         value: { min: 1, max: 2 }, // 粒子大小在 1px-2px 之间，非常精致
-        random: true, // 随机大小
       },
     },
     detectRetina: true, // 适配视网膜屏幕
