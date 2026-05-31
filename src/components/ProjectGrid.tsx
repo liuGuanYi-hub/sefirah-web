@@ -1,4 +1,17 @@
-import {Terminal, BrainCircuit, BotMessageSquare, Github, Utensils, Wallet, Activity} from 'lucide-react';
+import {
+  Terminal,
+  BrainCircuit,
+  BotMessageSquare,
+  Github,
+  Utensils,
+  Wallet,
+  Activity,
+  FileText,
+  BarChart3,
+  GraduationCap,
+  Smartphone,
+  ListTodo,
+} from 'lucide-react';
 import { motion, type Variants } from 'framer-motion';
 
 // 项目数据保持不变
@@ -20,6 +33,36 @@ const projects = [
     tech: ['React', 'Spring Boot', 'MySQL'],
     color: 'amber', // 专属琥珀金配色
     github: 'https://github.com/liuGuanYi-hub/moneyNote',
+  },
+  {
+    icon: FileText,
+    title: 'CV Buddy',
+    description: '基于 Python + PySide6 的桌面端简历小助手。支持结构化填写经历与技能、实时预览经典模板、本地 JSON 草稿保存，并导出 PDF 简历。',
+    tech: ['Python', 'PySide6', 'PDF'],
+    color: 'emerald',
+  },
+  {
+    icon: BarChart3,
+    title: 'DataSense',
+    description: '面向数据洞察与可视化分析的全栈项目。使用 React 与 ECharts 构建交互式图表，后端接入 Spring AI 与 Ollama，探索本地模型辅助的数据解释流。',
+    tech: ['React', 'ECharts', 'Spring Boot', 'Spring AI', 'Ollama'],
+    color: 'cyan',
+    github: 'https://github.com/liuGuanYi-hub/DataSense',
+  },
+  {
+    icon: GraduationCap,
+    title: 'KaoyanBuddy 考研助手',
+    description: '一站式考研规划平台。集成 AI 智能答疑、每日学习任务、数据看板、科目管理与 JWT 认证，让备考流程更清晰可追踪。',
+    tech: ['React', 'Vite', 'Spring Boot', 'DeepSeek', 'JWT', 'MySQL'],
+    color: 'emerald',
+  },
+  {
+    icon: Smartphone,
+    title: 'SilverLink 银龄服务',
+    description: '适老化社区服务 Android 应用。围绕健康档案、用药提醒、食堂点餐、家政预约、紧急联系人与家属关怀等日常场景构建移动端体验。',
+    tech: ['Kotlin', 'Jetpack Compose', 'Android', 'Spring Boot'],
+    color: 'cyan',
+    github: 'https://github.com/liuGuanYi-hub/SilverLink',
   },
   {
     icon: BrainCircuit,
@@ -45,6 +88,14 @@ const projects = [
     color: 'emerald',
     github: 'https://github.com/liuGuanYi-hub/what2eat',
   },
+  {
+    icon: ListTodo,
+    title: 'Task Manager',
+    description: '个人任务管理工具，覆盖命令行与 Web 两种使用方式。支持任务 CRUD、搜索过滤、统计报表、周报、提醒与每日摘要。',
+    tech: ['Python', 'Flask', 'CLI'],
+    color: 'amber',
+    github: 'https://github.com/liuGuanYi-hub/task-manager',
+  },
 ];
 
 const techColorMap: Record<string, string> = {
@@ -57,6 +108,19 @@ const techColorMap: Record<string, string> = {
   LLM: 'text-teal-400 bg-teal-950/50 border-teal-900',
   Vue: 'text-emerald-400 bg-emerald-950/50 border-emerald-900',
   Java: 'text-red-400 bg-red-950/50 border-red-900',
+  Python: 'text-yellow-300 bg-yellow-950/50 border-yellow-900',
+  PySide6: 'text-teal-400 bg-teal-950/50 border-teal-900',
+  PDF: 'text-red-300 bg-red-950/50 border-red-900',
+  ECharts: 'text-fuchsia-400 bg-fuchsia-950/50 border-fuchsia-900',
+  'Spring AI': 'text-lime-400 bg-lime-950/50 border-lime-900',
+  Ollama: 'text-zinc-300 bg-zinc-900/80 border-zinc-700',
+  DeepSeek: 'text-violet-400 bg-violet-950/50 border-violet-900',
+  JWT: 'text-orange-300 bg-orange-950/50 border-orange-900',
+  Kotlin: 'text-purple-400 bg-purple-950/50 border-purple-900',
+  'Jetpack Compose': 'text-sky-300 bg-sky-950/50 border-sky-900',
+  Android: 'text-green-400 bg-green-950/50 border-green-900',
+  Flask: 'text-zinc-300 bg-zinc-950 border-zinc-800',
+  CLI: 'text-cyan-300 bg-cyan-950/50 border-cyan-900',
 };
 
 // 水波纹浮现动画保持不变
