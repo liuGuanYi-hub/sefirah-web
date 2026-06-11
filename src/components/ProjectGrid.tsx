@@ -40,6 +40,7 @@ const projects = [
     description: '基于 Python + PySide6 的桌面端简历小助手。支持结构化填写经历与技能、实时预览经典模板、本地 JSON 草稿保存，并导出 PDF 简历。',
     tech: ['Python', 'PySide6', 'PDF'],
     color: 'emerald',
+    github: 'https://github.com/liuGuanYi-hub/cv-buddy',
   },
   {
     icon: BarChart3,
