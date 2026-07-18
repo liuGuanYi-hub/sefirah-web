@@ -194,11 +194,11 @@ export default function ProjectGrid() {
               </div>
 
               {/* 技术栈标签 */}
-              <div className="flex flex-wrap gap-2 pt-4 border-t border-white/[0.03]">
+              <div className="project-tech-tags flex flex-wrap gap-2 pt-4 border-t border-white/[0.03]">
                 {project.tech.map((tech) => (
                   <span
                     key={tech}
-                    className={`px-3 py-1 text-xs font-mono rounded-full border ${techColorMap[tech] || 'text-zinc-400 bg-zinc-950 border-zinc-900'}`}
+                    className={`project-tech-tag px-3 py-1 text-xs rounded-full border ${techColorMap[tech] || 'text-zinc-400 bg-zinc-950 border-zinc-900'}`}
                   >
                     {tech}
                   </span>

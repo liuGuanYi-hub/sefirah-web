@@ -39,11 +39,11 @@ export default function Home() {
     <motion.div 
       initial="hidden" animate="visible" exit={{ opacity: 0 }}
       variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
-      className="max-w-6xl mx-auto space-y-32 pb-20" 
+      className="home-page max-w-6xl mx-auto space-y-20 lg:space-y-32 pb-12 lg:pb-20"
     >
       
       {/* 1. 自我介绍板块 - 宽屏响应式布局 */}
-      <motion.section variants={fadeInUp} className="flex flex-col lg:flex-row gap-12 lg:items-center py-10" id="about">
+      <motion.section variants={fadeInUp} className="home-about flex flex-col lg:flex-row gap-7 lg:gap-12 lg:items-center py-4 lg:py-10" id="about">
         
         {/* 左侧：专属头像（带磨砂边框和 Hover 缩放） */}
         <div className="relative group w-32 h-32 lg:w-48 lg:h-48 shrink-0">
@@ -54,11 +54,11 @@ export default function Home() {
         </div>
 
         {/* 右侧：文字介绍 */}
-        <div className="space-y-6">
-          <h1 className="text-4xl md:text-7xl font-extrabold text-zinc-100 tracking-tighter">
+        <div className="home-intro space-y-4 lg:space-y-6">
+          <h1 className="home-title text-4xl lg:text-7xl font-extrabold text-zinc-100 tracking-tighter">
             你好，我是 <span className="bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">ZZD</span>。
           </h1>
-          <p className="text-xl md:text-2xl text-zinc-400/90 leading-relaxed max-w-3xl font-light">
+          <p className="home-description text-lg lg:text-2xl text-zinc-400/90 leading-relaxed max-w-3xl font-light">
             来自汕头潮阳，目前是韩山师范学院的一名大三学生。
             <br />
             热衷于 <span className="text-emerald-400/80 font-medium">React + Vite</span> 与 <span className="text-emerald-400/80 font-medium">Spring Boot</span> 全栈开发。
@@ -73,17 +73,17 @@ export default function Home() {
       </motion.div>
 
       {/* 3. 时光碎片 - 动态渲染列表 */}
-      <motion.section variants={fadeInUp} className="space-y-12" id="moments">
+      <motion.section variants={fadeInUp} className="home-moments space-y-8 lg:space-y-12" id="moments">
         <h2 className="text-2xl md:text-3xl font-bold text-zinc-100 flex items-center gap-3 tracking-tighter">
           <Clock className="text-emerald-500" size={28} />
           时光碎片 <span className="text-emerald-500">.</span>
         </h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="home-moments-grid grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
           {sortedMoments.map((moment) => (
             <div 
               key={moment.id}
-              className={`group relative p-6 rounded-3xl transition-all duration-500 hover:-translate-y-2 transform overflow-hidden shadow-2xl shadow-black/30 border
+              className={`home-moment-card group relative p-5 lg:p-6 rounded-3xl transition-all duration-500 hover:-translate-y-2 transform overflow-hidden shadow-2xl shadow-black/30 border
                 ${moment.isMilestone 
                   ? 'bg-emerald-500/5 border-emerald-500/20 hover:border-emerald-500/40' 
                   : 'bg-white/[0.01] border-white/[0.03] hover:border-white/10'}`}

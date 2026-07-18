@@ -1,11 +1,42 @@
 @import "tailwindcss";
-@plugin "@tailwindcss/typography"; /* <-- 新增这一行，激活排版引擎 */
+@plugin "@tailwindcss/typography";
 
-body {
-  /* 换成更柔和的深蓝黑 */
-  background-color: #0e0f11; 
-  color: #f4f4f5;
-  margin: 0;
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  overflow-x: hidden; /* 防止粒子飘出屏幕 */
+:root { --paper:#f7f5ee; --ink:#304238; --muted:#718078; --accent:#4f8f72; --border:#dfe6dd; }
+html { background: var(--paper); }
+body { background: radial-gradient(circle at 8% 0%,#b9d9c347,transparent 28rem), radial-gradient(circle at 92% 15%,#e8dcbb33,transparent 24rem),var(--paper); color:var(--ink); margin:0; font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; overflow-x:hidden; }
+::selection { background:#b9d9c3; color:#264333; }
+
+/* Shared visual overrides keep the existing page structure while moving all surfaces into the warm paper palette. */
+[class*="bg-zinc-"], [class*="bg-gray-"], [class*="bg-white/[0.01]"], [class*="bg-white/[0.02]"] { background-color:#fffefa !important; }
+[class*="text-zinc-100"], [class*="text-zinc-200"], [class*="text-gray-100"] { color:#304238 !important; }
+[class*="text-zinc-300"], [class*="text-zinc-400"], [class*="text-gray-400"], [class*="text-zinc-500"] { color:#718078 !important; }
+[class*="border-zinc-"], [class*="border-gray-"], [class*="border-white/"] { border-color:#dfe6dd !important; }
+[class*="text-emerald-"], [class*="text-cyan-"], [class*="text-sky-"], [class*="text-teal-"] { color:#4f8f72 !important; }
+[class*="bg-emerald-"], [class*="bg-cyan-"], [class*="bg-teal-"] { background-color:#edf5ee !important; }
+[class*="border-emerald-"], [class*="border-cyan-"], [class*="border-teal-"] { border-color:#c9dfcf !important; }
+
+.project-tech-tag {
+  font-family: inherit !important;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: #4c7561 !important;
+  background: #edf6ef !important;
+  border-color: #cfe3d4 !important;
+}
+.project-tech-tag:hover { color:#315d49 !important; background:#e3f0e6 !important; border-color:#a9cdb3 !important; }
+
+/* A desktop browser with high page zoom can report a phone-sized CSS viewport.
+   Keep computer peripherals on the desktop composition in that case. */
+@media (hover: hover) and (pointer: fine) {
+  .site-nav-inner { min-height:0 !important; height:4rem !important; padding:0 2rem !important; }
+  .site-nav-links { flex-wrap:nowrap !important; gap:1.5rem !important; font-size:.875rem !important; }
+  .site-main { padding:10rem 2rem 5rem !important; }
+  .home-page > :not(:last-child) { margin-bottom:8rem !important; }
+  .home-about { flex-direction:row !important; gap:3rem !important; align-items:center !important; padding:2.5rem 0 !important; }
+  .home-intro > :not(:last-child) { margin-bottom:1.5rem !important; }
+  .home-title { font-size:4.5rem !important; }
+  .home-description { font-size:1.5rem !important; }
+  .home-moments > :not(:last-child) { margin-bottom:3rem !important; }
+  .home-moments-grid { gap:1.5rem !important; }
+  .home-moment-card { padding:1.5rem !important; }
 }

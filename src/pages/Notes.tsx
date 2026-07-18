@@ -59,9 +59,9 @@ export default function Notes() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.5 }}
-          className="max-w-3xl mx-auto pb-20"
+          className="max-w-3xl mx-auto pb-12 lg:pb-20"
       >
-        <div className="mb-12">
+        <div className="mb-8 lg:mb-12">
           <h1 className="text-3xl font-bold text-zinc-100 mb-4 tracking-tighter">思考</h1>
           <p className="text-zinc-500 font-light leading-relaxed max-w-xl">
             知识图谱与碎片化思考。文章不设终点，随认知持续迭代。
@@ -69,12 +69,12 @@ export default function Notes() {
         </div>
 
         {/* 分类过滤器 (Filter Bar) */}
-        <div className="flex flex-wrap gap-3 mb-10">
+        <div className="flex flex-wrap gap-2 lg:gap-3 mb-7 lg:mb-10">
           {categories.map((cat) => (
               <button
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
-                  className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300 border ${
+                  className={`px-3.5 lg:px-4 py-1.5 rounded-full text-xs lg:text-sm font-medium transition-all duration-300 border ${
                       activeCategory === cat
                           ? 'bg-zinc-100 text-zinc-900 border-zinc-100 shadow-[0_0_15px_rgba(255,255,255,0.2)]'
                           : 'bg-zinc-900/50 text-zinc-400 border-zinc-800 hover:text-zinc-200 hover:border-zinc-600'
@@ -103,7 +103,7 @@ export default function Notes() {
                   >
                     <Link
                         to={`/post/${note.id}`}
-                        className="group relative flex flex-col sm:flex-row sm:items-center gap-4 py-4 px-4 -mx-4 rounded-2xl hover:bg-white/[0.02] transition-all duration-300"
+                        className="group relative flex flex-col lg:flex-row lg:items-center gap-3 lg:gap-4 py-3.5 lg:py-4 px-3 lg:px-4 -mx-3 lg:-mx-4 rounded-2xl hover:bg-white/[0.02] transition-all duration-300"
                     >
                       {/* 日期与时间轴节点 */}
                       <div className="relative flex items-center gap-6 shrink-0">

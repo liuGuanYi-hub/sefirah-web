@@ -104,13 +104,13 @@ export default function News() {
     >
       {/* 页面标题 */}
       <div className="mb-8">
-        <div className="flex items-center justify-between mb-4">
-          <h1 className="text-3xl font-bold text-zinc-100 mb-4 tracking-tighter flex items-center gap-3">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 mb-4">
+          <h1 className="text-3xl font-bold text-zinc-100 tracking-tighter flex items-center gap-3">
             <Sparkles className="text-emerald-500" size={28} />
             资讯聚合
           </h1>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center justify-between lg:justify-end gap-3 w-full lg:w-auto">
             {lastUpdated && (
               <span className="text-xs text-zinc-500">
                 更新于{' '}
@@ -122,7 +122,7 @@ export default function News() {
             )}
             <button
               onClick={refreshFeed}
-              className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-sm hover:text-emerald-400 hover:border-emerald-500/30 border border-zinc-700 transition-all disabled:opacity-50"
+              className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-zinc-800/50 text-zinc-400 text-xs lg:text-sm hover:text-emerald-400 hover:border-emerald-500/30 border border-zinc-700 transition-all disabled:opacity-50"
             >
               <RefreshCw size={14} />
               刷新时间
@@ -136,16 +136,16 @@ export default function News() {
       </div>
 
       {/* 主布局：左侧资讯流 + 右侧 AI 助手 */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
         {/* 左侧：资讯流列表 */}
         <div className="lg:col-span-2">
           {/* 分类过滤器 */}
-          <div className="flex flex-wrap gap-3 mb-8">
+          <div className="flex flex-wrap gap-2 lg:gap-3 mb-6 lg:mb-8">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300 border ${
+                className={`px-3.5 lg:px-4 py-1.5 rounded-full text-xs lg:text-sm font-medium transition-all duration-300 border ${
                   activeCategory === cat
                     ? 'bg-zinc-100 text-zinc-900 border-zinc-100 shadow-[0_0_15px_rgba(255,255,255,0.2)]'
                     : 'bg-zinc-900/50 text-zinc-400 border-zinc-800 hover:text-zinc-200 hover:border-zinc-600'
@@ -167,9 +167,9 @@ export default function News() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.03, duration: 0.3 }}
-                className="group block p-4 rounded-2xl bg-zinc-900/30 border border-zinc-800/50 hover:bg-zinc-900/60 hover:border-emerald-500/30 transition-all duration-300"
+                className="group block p-3.5 lg:p-4 rounded-2xl bg-zinc-900/30 border border-zinc-800/50 hover:bg-zinc-900/60 hover:border-emerald-500/30 transition-all duration-300"
               >
-                <div className="flex items-start justify-between gap-4">
+                <div className="flex items-start justify-between gap-3 lg:gap-4">
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-2 flex-wrap">
                       {news.featured && (
@@ -247,7 +247,7 @@ export default function News() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3, duration: 0.5 }}
-            className="sticky top-24"
+            className="sticky top-20 lg:top-24"
           >
             <div className="relative p-5 rounded-2xl bg-gradient-to-b from-emerald-500/10 to-cyan-500/10 border border-emerald-500/20 backdrop-blur-sm">
               {/* 光晕装饰 */}
