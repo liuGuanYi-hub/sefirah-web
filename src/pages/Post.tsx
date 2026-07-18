@@ -48,7 +48,7 @@ export default function Post() {
       </header>
 
       {/* 文章正文 (Markdown 渲染区) */}
-      <article className="prose prose-invert prose-emerald max-w-none prose-p:leading-relaxed prose-pre:bg-[#0a0a0c] prose-pre:border prose-pre:border-white/[0.05]">
+      <article className="post-article prose max-w-none prose-p:leading-relaxed">
         <ReactMarkdown>{content}</ReactMarkdown>
       </article>
 

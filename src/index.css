@@ -25,6 +25,17 @@ body { background: radial-gradient(circle at 8% 0%,#b9d9c347,transparent 28rem),
 }
 .project-tech-tag:hover { color:#315d49 !important; background:#e3f0e6 !important; border-color:#a9cdb3 !important; }
 
+.post-article { color:#586a61 !important; }
+.post-article h1, .post-article h2, .post-article h3, .post-article h4,
+.post-article strong { color:#304238 !important; }
+.post-article p, .post-article li, .post-article td, .post-article th { color:#586a61 !important; }
+.post-article a { color:#4f8f72 !important; text-decoration-color:#b9d9c3 !important; }
+.post-article blockquote { color:#64766c !important; border-left-color:#9fc5aa !important; background:#f0f6f0; padding:0.75rem 1rem; border-radius:0 .75rem .75rem 0; }
+.post-article hr { border-color:#dfe6dd !important; }
+.post-article code:not(pre code) { color:#416752 !important; background:#edf5ee !important; padding:.15em .35em; border-radius:.35rem; }
+.post-article pre { background:#304b3d !important; color:#edf6ef !important; border:1px solid #426653 !important; box-shadow:0 12px 30px rgba(48,75,61,.12); }
+.post-article pre code { color:#edf6ef !important; background:transparent !important; }
+
 /* A desktop browser with high page zoom can report a phone-sized CSS viewport.
    Keep computer peripherals on the desktop composition in that case. */
 @media (hover: hover) and (pointer: fine) {
